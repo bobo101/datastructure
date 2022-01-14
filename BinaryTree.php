@@ -40,8 +40,7 @@ class BinaryTree
 	public function print(BinaryNode $node, int $level = 0) 
 	{ 
     	if ($node) { 
-          	echo str_repeat("-", $level); 
-          	echo $node->data . "\n"; 
+          	
 
           	if ($node->left){
             	$this->print($node->left, $level + 1); 
@@ -50,8 +49,11 @@ class BinaryTree
           	if ($node->right){
             	$this->print($node->right, $level + 1); 
           	}
+          	echo str_repeat("-", $level); 
+          	echo $node->data . "\n"; 
+
          } 
-    } 
+    }
 }
 
 $binaryTree = new BinaryTree('root');
@@ -87,5 +89,6 @@ $binaryTree->addRight($root->right->right->left, 'right_right_left_right');
 $binaryTree->addLeft($root->right->right->right, 'right_right_right_left');
 $binaryTree->addRight($root->right->right->right, 'right_right_right_right');
 
+echo "DFS:\n";
 $binaryTree->print($binaryTree->getRoot());
 // print_r( $binaryTree->getRoot());
